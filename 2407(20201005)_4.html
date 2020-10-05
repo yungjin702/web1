@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+            var startTime, timer, timer1, timer2;
+            
+            function winNewTab()
+            {
+                 win1 = window.open("","_blank", "width=500,height=600");
+            }
+            
+            function winOpenWeb() {
+                win1 = window.open("https://yungjin702.github.io/web1/", "_blank");
+            }
+            
+            function start() {
+                startTime = new Date(); //1sec, 1000ms마다 시간과 경과한 시간 표시
+                timer = setInterval(displayTime, 1000);
+                timer1 = setTimeout(winNewTab, 5000);
+                timer2 = setTimeout(winOpenWeb, 10000);
+                
+            }
+            
+            function displayTime() {
+                var now = new Date(); var elapse = ((now - startTime) / 1000).toFixed(0); 
+                document.getElementById("elapseTime").innerHTML = "경과 시간: " + elapse;
+                
+                if((now - startTime) > 10000)
+                {
+                    Stop();
+                }
+                
+            }
+            
+            function Stop()
+            {
+                start = 0;
+                document.getElementById("elapseTime").innerHTML =  "경과 시간: " + 0;
+            }
+        
+        </script>
+    </head>
+    
+    <body>
+        <p id="elapseTime">경과 시간: 0</p>
+        <input type="button" value="start" id="start" onclick="start()">
+    </body>
+
+</html>
