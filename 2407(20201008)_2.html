@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <script>
+            function start(input)
+            {
+                var result = 0;
+                var n = parseInt(document.getElementById("input").value);
+                
+                if(isNaN(n) || n == 0)
+                {
+                    alert("다시 입력하세요");
+                    return;
+                }
+                
+                
+                if(input == 0)
+                {
+                    result = factorial(n);
+                }
+                else if (input == 1)
+                {
+                    result = factorialWhile(n);            
+                }
+                
+                document.getElementById("result").innerHTML = "결과 출력 : " + result;
+            }
+            
+            
+            function factorial(n)
+            {   
+                if(n<=1) 
+                    return 1;
+                
+                return n * factorial(n-1);
+            }
+            
+                
+            function factorialWhile(n)
+            {
+                var result = 1;
+                while(n > 1)
+                {
+                   result *= n--;
+                }
+                
+                return result;
+            }
+        </script>
+    </head>
+    
+    <body>
+        입력창
+        <input type="text" id ="input">
+        <p id="result">결과 출력 : </p>
+        <input type="button" onclick="start(0)" value="펙토리얼(제귀)">
+        <input type="button" onclick="start(1)" value="펙토리얼(while)">
+    
+    
+    </body>
+    
+</html>

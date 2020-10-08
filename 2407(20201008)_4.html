@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <script>
+            function start()
+            {
+                for(var i = 1; i < 21; ++i)
+                {
+                    for(var j = 1; j < 21; ++j)
+                    {
+                        for(var h = 1; h < 21; ++h)
+                        {
+                            if((i * i) + (j * j) == (h * h))
+                            {
+                                document.getElementById("result").innerHTML += "(" + i + ", " + j + ", " + h + ") ";
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    
+    <body>
+        <p id="result"></p>
+        <button onclick="start()">피타고라스 수</button>
+    </body>
+    
+</html>

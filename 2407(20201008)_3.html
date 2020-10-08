@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <script>
+            var primeNum = new Array(101);
+            
+            function start()
+            {
+                for(var i = 0; i < 100; i++)
+                {
+                    primeNum[i] = 1;
+                }
+                
+                for(var i = 2; i <= Math.sqrt(100); ++i )
+                {
+                    if(primeNum[i] == 0)
+                        continue;
+                    
+                    for(var j = i + i; j <= 100; j += i)
+                    {
+                        primeNum[j] = 0;
+                    }
+                }
+                
+                for(var i = 1; i < 100; i++)
+                {
+                    if(primeNum[i] == 1)
+                            document.getElementById("result").innerHTML += i + " ";
+                }
+            }
+        </script>
+    </head>
+    
+    <body>
+        <p id="result"></p>
+        <button onclick="start()">소수 확인</button>
+    </body>
+    
+</html>
