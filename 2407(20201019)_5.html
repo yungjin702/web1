@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Canvas API 사용(스마일)</title>
+        <script>
+            function draw()
+            {
+                var canvas = document.getElementById('canvas');
+                var size = 10; //scale
+                
+                
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext('2d');
+                    ctx.beginPath(); 
+                     ctx.moveTo(10, 10); 
+                     ctx.lineTo(10 * size, 10); 
+                     ctx.lineTo(10, 10 * size); 
+                     ctx.fill(); 
+                     ctx.closePath();
+                    
+                     ctx.beginPath(); 
+                     ctx.fillStyle = "rgb(255, 255, 255)"
+                     ctx.moveTo(10 + 10 * size, 20); 
+                     ctx.lineTo(10 + 10 * size, 10 + 10 * size); 
+                     ctx.lineTo(20, 10 + 10 * size);
+                     ctx.lineTo(10 + 10 * size, 20);
+                     ctx.stroke();
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="draw()">
+        <canvas id ="canvas" height="400" width="400"></canvas>
+    
+    </body>
+</html>
