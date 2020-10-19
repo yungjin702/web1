@@ -3,23 +3,21 @@
     <head>
         <title>Canvas API 사용(2D)</title>
         <script>
-            window.onload = function() {
-            var canvas = document.getElementById("canvas"); 
-            var context = canvas.getContext("2d");
-            context.fillStyle = "green";
-            context.fillRect(0, 0, 150, 100);
-            context.fillText("Hello, HTML5!", 155, 110);
-            context.beginPath();
-            context.moveTo(170, 200);
-            context.lineTo(300, 200);
-            context.rect(0, 0, 400, 400);
-            context.stroke();
-            context.closePath();
-            };
+            function draw()
+            {
+                var canvas = document.getElementById("canvas"); 
+                if (canvas.getContext) {
+                   var ctx = canvas.getContext("2d");
+                   ctx.fillStyle = "rgb(200,0,0)"; 
+                   ctx.fillRect(10, 10, 50, 50);
+                   ctx.fillStyle = "rgba(0, 0, 200, 0.5)"; 
+                   ctx.fillRect(30, 30, 50, 50); 
+            }
+
         </script>
     </head>
 
-    <body>
+    <body onload="draw()">
         <canvas id ="canvas" height="400" width="400"></canvas>
     
     </body>
