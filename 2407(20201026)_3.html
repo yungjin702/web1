@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Canvas API 사용(문제해결)</title>
+        <script>
+            function draw()
+            {
+                var canvas = document.getElementById("canvas"); 
+                var context = canvas.getContext("2d");
+                
+                context.strokeStyle = "rgb(0, 0, 0)";
+                
+                context.beginPath(); 
+                context.moveTo(10, 10); 
+                context.lineTo(230, 10); 
+                context.arcTo(240, 10, 240, 20, 10); 
+                context.lineTo(240, 160);
+                context.arcTo(240, 210, 230, 210, 10);
+                context.lineTo(10, 210);
+                context.arcTo(0, 210, 0, 200, 10);
+                context.lineTo(0, 20);
+                context.arcTo(0, 10, 10, 10, 10);
+                context.stroke();
+            }
+            
+            function draw1()
+            {
+                var canvas = document.getElementById("canvas1"); 
+                var context = canvas.getContext("2d");
+                
+                context.strokeStyle = "rgb(0, 0, 0)";
+                
+                context.beginPath(); 
+                context.moveTo(50, 10); 
+                context.lineTo(180, 10); 
+                context.arcTo(240, 10, 240, 20, 50); 
+                context.lineTo(240, 160);
+                context.arcTo(240, 210, 230, 210, 50);
+                context.lineTo(60, 210);
+                context.arcTo(0, 210, 0, 200, 50);
+                context.lineTo(0, 80);
+                context.arcTo(0, 10, 10, 10, 50);
+                context.stroke();
+            }
+        </script>
+    </head>
+
+    <body onload="draw(), draw1()">
+        <div>
+            <canvas id ="canvas" height="250" width="400"></canvas>
+        </div>
+        <div>
+            <canvas id ="canvas1" height="250" width="400"></canvas>
+        </div>
+    
+    </body>
+</html>

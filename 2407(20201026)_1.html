@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Canvas API 사용(문제해결)</title>
+        <script>
+            function draw()
+            {
+                var canvas1 = document.getElementById("canvas1");
+                var context1 = canvas1.getContext("2d");
+                //첫번째 테스트
+                var x = canvas1.width / 4;
+                var y = canvas1.height / 4;
+                var radius = 30;
+                var startAngle = 0 * Math.PI / 180;
+                var endAngle = 270 * Math.PI / 180;
+                
+                context1.strokeStyle = "rgb(0, 0, 0)";
+                
+                context1.beginPath();
+                context1.arc(x, y, radius, startAngle, endAngle);
+                context1.closePath();
+                context1.stroke();
+                
+                //두번째 테스트
+                context1.beginPath();
+                context1.arc(3 * x, y, radius, startAngle, endAngle);
+                context1.stroke();
+                //세번째 테스트
+                context1.beginPath();
+                context1.arc(x, 3 * y, radius, startAngle, endAngle, true);
+                context1.closePath();
+                context1.stroke();
+                //네번째 테스트
+                context1.beginPath();
+                context1.arc(3 * x, 3 * y, radius, startAngle,endAngle, true);
+                context1.stroke();
+
+            }
+            
+            function Fill()
+            {
+                //fill() 테스트
+                var canvas2 = document.getElementById("canvas2");
+                var context2 = canvas2.getContext("2d");
+                //첫번째 테스트
+                var x = canvas2.width / 4;
+                var y = canvas2.height / 4;
+                var radius = 30;
+                var startAngle = 0 * Math.PI / 180;
+                var endAngle = 270 * Math.PI / 180;
+                context2.beginPath();
+                context2.arc(x, y, radius, startAngle, endAngle);
+                context2.fill();
+                
+                //두번째 테스트
+                context2.beginPath();
+                context2.arc(3 * x, y, radius, startAngle, endAngle);
+                context2.fill();
+                
+                //세번째 테스트
+                context2.beginPath();
+                context2.arc(x, 3 * y, radius, startAngle, endAngle, true);
+                context2.closePath();
+                context2.fill();
+                
+                //네번째 테스트
+                context2.beginPath();
+                context2.arc(3 * x, 3 * y, radius, startAngle, endAngle, true);
+                context2.fill();
+            }
+        </script>
+    </head>
+
+    <body onload="draw(), Fill()">
+        <canvas id ="canvas1" height="200" width="200"></canvas>
+        <canvas id ="canvas2" height="200" width="200"></canvas>
+    
+    </body>
+</html>
