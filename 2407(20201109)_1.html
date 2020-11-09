@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Canvas 2D API-공</title>
+        
+        <style>
+            * { padding: 0; margin: 0; }
+            canvas { background: #eee; display: block; margin: 0 auto; }
+        </style>
+    
+    </head>
+    
+    <body>
+        <div><canvas id="canvas" width="400" height="400"></canvas></div>
+        
+        <script>
+            var canvas = document.getElementById("canvas"); 
+            var ctx = canvas.getContext("2d"); 
+            var x = canvas.width / 2; 
+            var y = canvas.height - 30; 
+            var dx = 2; var dy = -2; 
+            var ballRadius = 10;
+            var color = "#0095DD";
+            
+            function drawBall() {
+                ctx.clearRect(0,0,400,400);
+                ctx.beginPath(); 
+                ctx.arc(x, y, ballRadius, 0, Math.PI * 2); 
+                ctx.fillStyle = color; 
+                ctx.fill(); ctx.closePath(); 
+            }
+            
+            function changeColor()
+            {
+                color = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+            }
+            
+            function draw() {
+                drawBall(); 
+                
+                x += dx; 
+                y += dy; 
+            }
+            
+            setInterval(draw, 10); 
+        </script>
+    </body>
+</html>
